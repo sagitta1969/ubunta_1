@@ -1,0 +1,32 @@
+задание 2 
+создал виртуальную машину с именем "ubuntu"
+uubuntu@ubuntu-VirtualBox:
+задание 3 
+установка quest additions команды
+	sudo apt-get update
+установка пакетов gcc make perl
+	sudo apt-get install gcc make perl
+монтирование оптического диска, команды:
+	sudo mkdir /media/ubuntu/additions
+	sudo mout /dev/sr0 /media/ubuntu/additions
+	sudo ./autorun.sh
+задание 4 
+в настройках виртуальной машины, 
+в закладке общие, вкладке "дополнительно" настраиваем общий буфер обмена
+и опцию Drag'n'Drop
+в закладке "сеть" меняем сетевой интерфейс на сетевой мост (Bridged)
+задание 5
+устанвка openssh-server команды
+	sudo apt-get install openssh-server
+запуск службы
+	sudo systemctl start sshd
+прорверка статуса
+	sudo systemctl status sshd
+устанавливаем службу net-tools
+	sudo apt-get install net-tools
+
+узнаем АйПи адрес виртуальной машины
+	ip a 
+адрес 192.168.56.101
+
+
