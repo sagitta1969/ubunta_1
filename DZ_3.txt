@@ -1,0 +1,50 @@
+задание 1 
+~$ mkdir lesson3 			" создаем директорию"
+~/lesson3$ echo jhfjenjnbnjk >file1 	"создаем файл"
+~/lesson3$ cp file1 file2		"создаем второй файл"
+~/lesson3$ ln -s file1 file3		"создаем символическую ссылку"
+~/lesson3$ ln file1 file4		"создаем жесткую ссылку "
+~/lesson3$ ln -ila			"смотрим inode файлов"
+558691 ... 2 ... file1
+558692 ... 1 ... file2
+558693 ... 1 ... 'file3' -> file1
+558691 ... 2 ... file4
+~/lesson3$ rv -f file1			"удаляем файл"
+~/lesson3$ ln -ila			"смотрим inode"
+558692 ... 1 ... file2
+558693 ... 1 ... 'file3' -> file1	"выдено красным"	
+558691 ... 2 ... file4
+на экран выводятся все файлы (команда cat) кроме file3 - сообщение что файл или каталог отсутствует
+
+задание 2
+~/lesson3$ mv file2 new_file2		"преименовываем файл"
+~/lesson3$ mv file new_file4		" преименовываем файл"
+~/lesson3$ ln -s new_file2 sf_new_file2 "создаем новую символьную ссылку"
+~/lesson3$ mkdir new_dir		" новая директория"
+~/lesson3$ mv sf_new_file2 new_dir	"перемещаем ссылки"
+~/lesson3$ mv new_file4 new_dir		"перемещаем ссылки"
+~/lesson3/new_dir$ ls -ila		"смотрим содержимое диоректорий"
+558691... 1 ... new_file4		"ссылка работает"
+558695... 1 ... sf_new_file2		"не работает, "битая""
+
+задание 3
+~/lesson3/new_dir$ echo jejnbenenjjn > file_n	"создаем произвольные файлы"
+~/lesson3/new_dir$ echo efkhguiuw,cvd > file_d	"создаем произвольные файлы"
+~/lesson3/new_dir$ chmod ug+rw file_n		"символы присваиваем права: чтение, запись - владелец, группа; чтение - остальные"
+~/lesson3/new_dir$ chmod 600 file_d		"числа присваиваем права: чтение, запись - владелец; чтение - группа, остальные"
+~/lesson3/new_dir$ ls -l
+-rw-r--r--... ... file_n
+-rw-------... ... file_d
+Задание 4
+~$ sudo useradd -o -u 0 -g 0 -s /bin/bach newroot "команда создает пользователя с правами root"
+
+   
+
+
+
+
+
+
+
+
+
